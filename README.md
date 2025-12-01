@@ -1,1 +1,3 @@
-# calendario-avvento
+# Ma buon compleanno!
+
+Questo è un piccolo calendario speciale, fatto con amore, per vivere insieme la magia di dicembre...
