@@ -1,0 +1,228 @@
+/* Contenitore neve */
+.snow {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1; /* o più alto se vuoi sopra al calendario */
+  overflow: hidden;
+}
+
+/* Wrapper: gestisce la caduta verticale */
+.snowflake-wrapper {
+  position: absolute;
+  top: -12px; /* nasce appena sopra lo schermo */
+  animation: fall linear infinite;
+}
+
+/* Fiocco interno: dondola lateralmente */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: #d2edff; /* azzurro cielo pieno */
+  border-radius: 50%;
+  animation: fall linear infinite, sway ease-in-out infinite;
+}
+
+/* Caduta verticale */
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+
+/* Dondolio leggero */
+@keyframes sway {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+
+
+
+
+body {
+  font-family: 'IBM Plex Mono', sans-serif;
+  background: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px;
+  color: #000000;
+  font-family: 'Instrument Serif', serif;
+  font-size: 3.5em;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1em;
+  color: #939393;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, auto);
+  gap: 15px;
+  max-width: 920px;
+  margin: auto;
+}
+
+.day {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.day:not(.locked):hover {
+  transform: scale(1.05);
+}
+
+.day.locked {
+  cursor: default;
+  transition: none;
+}
+
+.day img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.locked-body {
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.day.locked img{
+  opacity: 0.5;          
+}
+
+.locked-body p {
+  margin: 8px 20px 10px;
+}
+
+.locked-body p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.lock {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+}
+
+.js-lock-badge {
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #000;   
+  border-radius: 50%;
+  width: 16px;              
+  height: 16px;
+  display: flex;            
+  align-items: center;      
+  justify-content: center;  
+}
+
+.js-lock-badge svg {
+  width: 14px;              
+  height: 14px;
+  stroke: #000;
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(105, 105, 105, 0.5);
+  mix-blend-mode: multiply;
+  z-index: -1; /* sta dietro la card */
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  width: min(500px, 90vw); /* larghezza massima */
+  max-height: 80vh;        /* limite massimo in altezza */
+  overflow-y: auto;        /* scroll se il contenuto è troppo lungo */
+  position: relative;
+  padding: 28px;
+  text-align: left; 
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+}
+
+.popup-date {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 600;
+  color: #000000;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.popup-body {
+  font-family: 'IBM Plex Mono', monospace;
+  color: #666666;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+}
+
+.popup-body img {
+  display: block;
+  margin: 16px auto 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.popup-date, .popup-body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.signature {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8em;
+  color: #a6a6a6;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-weight: 400;
+}

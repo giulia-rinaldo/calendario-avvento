@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Lucaz♥</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Il nostro calendario carino</h1>
+  <h2 class="subtitle">Per il tuo compleanno, dal 1 al 24 dicembre:<br>ogni giorno una porta da aprire.</h2>
+  <div class="calendar">
+    <!-- 24 caselle -->
+    <div class="day" data-day="1"><img src="img/door-1.png" alt="Day 1"></div>
+    <div class="day" data-day="2" class="lock"><img src="img/door-2.png" alt="Day 2"></div>
+    <div class="day" data-day="3" class="lock"><img src="img/door-3.png" alt="Day 3"></div>
+    <div class="day" data-day="4" class="lock"><img src="img/door-4.png" alt="Day 4"></div>
+    <div class="day" data-day="5" class="lock"><img src="img/door-5.png" alt="Day 5"></div>
+    <div class="day" data-day="6" class="lock"><img src="img/door-6.png" alt="Day 6"></div>
+    <div class="day" data-day="7" class="lock"><img src="img/door-7.png" alt="Day 7"></div>
+    <div class="day" data-day="8" class="lock"><img src="img/door-8.png" alt="Day 8"></div>
+    <div class="day" data-day="9" class="lock"><img src="img/door-9.png" alt="Day 9"></div>
+    <div class="day" data-day="10" class="lock"><img src="img/door-10.png" alt="Day 10"></div>
+    <div class="day" data-day="11" class="lock"><img src="img/door-11.png" alt="Day 11"></div>
+    <div class="day" data-day="12" class="lock"><img src="img/door-12.png" alt="Day 12"></div>
+    <div class="day" data-day="13" class="lock"><img src="img/door-13.png" alt="Day 13"></div>
+    <div class="day" data-day="14" class="lock"><img src="img/door-14.png" alt="Day 14"></div>
+    <div class="day" data-day="15" class="lock"><img src="img/door-15.png" alt="Day 15"></div>
+    <div class="day" data-day="16" class="lock"><img src="img/door-16.png" alt="Day 16"></div>
+    <div class="day" data-day="17" class="lock"><img src="img/door-17.png" alt="Day 17"></div>
+    <div class="day" data-day="18" class="lock"><img src="img/door-18.png" alt="Day 18"></div>
+    <div class="day" data-day="19" class="lock"><img src="img/door-19.png" alt="Day 19"></div>
+    <div class="day" data-day="20" class="lock"><img src="img/door-20.png" alt="Day 20"></div>
+    <div class="day" data-day="21" class="lock"><img src="img/door-21.png" alt="Day 21"></div>
+    <div class="day" data-day="22" class="lock"><img src="img/door-22.png" alt="Day 22"></div>
+    <div class="day" data-day="23" class="lock"><img src="img/door-23.png" alt="Day 23"></div>
+    <div class="day" data-day="24" class="lock"><img src="img/door-24.png" alt="Day 24"></div>
+  </div>
+
+  <p class="signature">Creato con tanto tanto amore da Giulia♥<br>Ti amo tanto!</p>
+
+<div id="popup" class="popup" aria-hidden="true">
+  <div class="popup-card" role="dialog" aria-modal="true">
+    <button id="close" class="close-btn" aria-label="Chiudi">&times;</button>
+    <h2 class="popup-date"></h2>
+    <div class="popup-body"></div>
+  </div>
+</div>
+
+<div class="snow"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
